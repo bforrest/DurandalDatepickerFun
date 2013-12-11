@@ -1,6 +1,6 @@
 define(['durandal/system', 'durandal/composition', 'knockout','jqueryui', 'plugins/observable'],
     function (system, composition, ko, jqueryui, observable) {
-        composition.addBindingHandler('datepicker', {
+        composition.addBindingHandler('obdatepicker', {
             init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
                 //initialize datepicker with some optional options
                 var options = allBindingsAccessor().datepickerOptions || {},
@@ -11,6 +11,8 @@ define(['durandal/system', 'durandal/composition', 'knockout','jqueryui', 'plugi
                 system.log('datepicker - ' + $el.id);
                 //handle the field changing
                 ko.utils.registerEventHandler(element, "change", function () {
+                    var id = $el.attributes["data-bind"].ownerelement;
+
                     var obs = allBindingsAccessor();
                     obs = $el.datepicker("getDate"); 
                 });

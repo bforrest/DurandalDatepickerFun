@@ -10,7 +10,8 @@
             router.map([
                 { route: '', title:'Welcome', moduleId: 'viewmodels/welcome', nav: true },
                 { route: 'flickr', moduleId: 'viewmodels/flickr', nav: true },
-                { route: 'pickadate', moduleId: 'viewmodels/pickadate', nav: true}, 
+                { route: 'pickadate', title: 'KO date', moduleId: 'viewmodels/pickadate', nav: true},
+                { route: 'obPluginPickDate', title: 'Observable Plugin', moduleId: 'viewmodels/obPluginPickDate', nav: true},
             ]).buildNavigationModel();
             
             return router.activate();
