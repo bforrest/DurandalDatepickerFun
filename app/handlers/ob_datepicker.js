@@ -11,10 +11,13 @@ define(['durandal/system', 'durandal/composition', 'knockout','jqueryui', 'plugi
                 system.log('datepicker - ' + $el.id);
                 //handle the field changing
                 ko.utils.registerEventHandler(element, "change", function () {
-                    var id = $el.attributes["data-bind"].ownerelement;
+                    // TODO: determine which property needs to be set.
+                    //var id = $el.attributes["data-bind"].ownerelement;
+                    system.log('date value changed: ' + $el.value );
 
-                    var obs = allBindingsAccessor();
-                    obs = $el.datepicker("getDate"); 
+                    system.log('datePicker value: ' + $el.datepicker("getDate") );
+                    //var obs = allBindingsAccessor();
+                    //obs = $el.datepicker("getDate"); 
                 });
 
                 //handle disposal (if KO removes by the template binding)
