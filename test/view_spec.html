@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jasmine Spec Runner</title>
+    <link rel="stylesheet" type="text/css" href="jasmine.css">
+    
+    <script type="text/javascript" src="jasmine-1.2.0.js"></script>
+    <script type="text/javascript" src="jasmine-html.js"></script>
+    <script type="text/javascript" src="../lib/jquery/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../lib/knockout/knockout-2.3.0.js"></script>
+    <script type="text/javascript" src="../lib/require/require.js"></script>
+    <script type="text/javascript">
+        require.config({
+            baseUrl: '../app/',
+            paths: {
+                'specs': '../test/specs/',
+                'text': '../lib/require/text',
+                'durandal': '../lib/durandal/js',
+                'plugins' : '../lib/durandal/js/plugins',
+                'transitions' : '/lib/durandal/js/transitions',
+                'knockout': '../lib/knockout/knockout-2.3.0',
+                'jquery': '../lib/jquery/jquery-1.9.1',
+                'app' : '../app'
+            }
+        });
+        var runTests = function (specfiles) {
+            require(specfiles, function () {
+                var consoleReporter = new jasmine.ConsoleReporter();
+                jasmine.getEnv().addReporter(consoleReporter);
+                jasmine.getEnv().execute();
+            });
+        };
+        (function() {
+          var jasmineEnv = jasmine.getEnv();
+          jasmineEnv.updateInterval = 1000;
+
+          var htmlReporter = new jasmine.HtmlReporter();
+
+          jasmineEnv.addReporter(htmlReporter);
+
+          jasmineEnv.specFilter = function(spec) {
+            return htmlReporter.specFilter(spec);
+          };
+
+          var currentWindowOnload = window.onload;
+
+          window.onload = function() {
+            if (currentWindowOnload) {
+              currentWindowOnload();
+            }
+            execJasmine();
+          };
+
+          function execJasmine() {
+            jasmineEnv.execute();
+          }
+
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>
