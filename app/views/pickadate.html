@@ -2,8 +2,10 @@
     <h2 data-bind="html: displayName"></h2>
     <div class="row-fluid">
     	<label>Git it started when?</label>
-    	<input type="text" data-bind="kodatepicker: chosenDate"  placeholder="mm/dd/yyyy">
+    	<input type="text" data-bind="kodatepicker: chosenDate" id='ko-date-picker' placeholder="mm/dd/yyyy">
 
     	<span data-bind="text: chosenDate"></span>
     </div>
+        <!-- ko compose: { view: 'teh_codez' } -->
+        <!-- /ko -->
 </section>    

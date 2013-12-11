@@ -1,0 +1,7 @@
+<pre>
+	//handle the field changing
+    ko.utils.registerEventHandler(element, "change", function () {
+        var observed = valueAccessor();
+        observed($el.datepicker("getDate"));
+    });
+</pre>

@@ -2,8 +2,13 @@
     <h2 data-bind="html: displayName"></h2>
     <div class="row-fluid">
     	<label>Git it started when?</label>
-    	<input type="text" data-bind="obdatepicker: chosenDate"  placeholder="mm/dd/yyyy">
+    	<input type="text" data-bind="obdatepicker: chosenDate" id='ob-date-picker' placeholder="mm/dd/yyyy">
 
     	<span data-bind="text: chosenDate"></span>
     </div>
+    <p>
+    	This doesn't work with the durandal observable plugin. The ko.observables() are written as getters/setters and 'valueAccessor()' is undefined when the event handler gets invoked. :-(
+    </p>
+        <!-- ko compose: { view: 'teh_codez' } -->
+        <!-- /ko -->
 </section>    
