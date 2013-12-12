@@ -1,5 +1,5 @@
-define(['durandal/system', 'durandal/composition', 'knockout','jqueryui', 'plugins/observable'],
-    function (system, composition, ko, jqueryui, observable) {
+define(['durandal/system', 'durandal/composition', 'knockout','jqueryui'],
+    function (system, composition, ko, jqueryui) {
         ko.bindingHandlers.obdatepicker = {
             init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
                 //initialize datepicker with some optional options
@@ -16,7 +16,7 @@ define(['durandal/system', 'durandal/composition', 'knockout','jqueryui', 'plugi
                 ko.utils.registerEventHandler(element, "change", function () {
                     // TODO: determine which property needs to be set.
                     system.log('datePicker value: ' + $el.datepicker("getDate") );
-                    viewModel[modelValue.prop] = $el.val();
+                    viewModel[modelValue] = $el.val();
                     //modelValue = $el.val();
                 });
 
@@ -28,7 +28,7 @@ define(['durandal/system', 'durandal/composition', 'knockout','jqueryui', 'plugi
             },
             update: function (element, valueAccessor, allBindingsAccessor, viewModel) {
                 var modelValue = valueAccessor,
-                    value = viewModel[modelValue.prop],
+                    value = viewModel[modelValue],
                     $el = $(element);
                 system.log('datepicker update - value: ' + value + ', $el: ' + $el.id);
                 //handle date data coming via json from Microsoft

@@ -11,7 +11,7 @@ define(['durandal/system', 'durandal/composition', 'knockout','jqueryui'],
                 //handle the field changing
                 ko.utils.registerEventHandler(element, "change", function () {
                     var observed = valueAccessor();
-                    observed($el.datepicker("getDate"));
+                    observed($el.val());
                 });
 
                 //handle disposal (if KO removes by the template binding)
