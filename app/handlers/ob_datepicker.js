@@ -10,14 +10,14 @@ define(['durandal/system', 'durandal/composition', 'knockout','jqueryui', 'plugi
 
                 $el.datepicker(options);
                 system.log('datepicker - ' + $el.id);
+                system.log('modelValue:' + modelValue);
 
                 //handle the field changing
                 ko.utils.registerEventHandler(element, "change", function () {
                     // TODO: determine which property needs to be set.
-                    system.log('date value changed: ' + $el.val() );
-
                     system.log('datePicker value: ' + $el.datepicker("getDate") );
-                    modelValue = $el.val();
+                    viewModel[modelValue.prop] = $el.val();
+                    //modelValue = $el.val();
                 });
 
                 //handle disposal (if KO removes by the template binding)
@@ -26,8 +26,9 @@ define(['durandal/system', 'durandal/composition', 'knockout','jqueryui', 'plugi
                 });
 
             },
-            update: function (element, valueAccessor) {
-                var value = ko.utils.unwrapObservable(valueAccessor()),
+            update: function (element, valueAccessor, allBindingsAccessor, viewModel) {
+                var modelValue = valueAccessor,
+                    value = viewModel[modelValue.prop],
                     $el = $(element);
                 system.log('datepicker update - value: ' + value + ', $el: ' + $el.id);
                 //handle date data coming via json from Microsoft
