@@ -17,7 +17,8 @@
     }
 });
 
-define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'handlers/ko_datepicker', 'handlers/ob_datepicker'],  function (system, app, viewLocator) {
+define(['durandal/system', 'durandal/app', 'durandal/viewLocator', 'handlers/ko_datepicker', 'handlers/ob_datepicker', 'handlers/ko_handler'],  
+    function (system, app, viewLocator) {
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");

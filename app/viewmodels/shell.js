@@ -13,6 +13,7 @@
                 { route: 'pickadate', title: 'KO date', moduleId: 'viewmodels/pickadate', nav: true},
                 { route: 'obPluginPickDate', title: 'Observable Plugin', moduleId: 'viewmodels/obPluginPickDate', nav: true},
                 { route: 'ob_value_hack', title: 'Observable  + value hack', moduleId: 'viewmodels/ob_value_hack', nav: true},
+                { route: 'ko_date_handler', title: 'ko handler', moduleId: 'viewmodels/ko_date_handler', nav: true}
             ]).buildNavigationModel();
             
             return router.activate();
